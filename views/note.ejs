@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./partials/head %>
+  </head>
+  <body>
+  	<% include ./partials/navbar %>
+    <% var url ='/notes/' + note.id %>
+    <div class="row">
+    	<div class="col s12 m4">
+    		<h3><%= note.title %></h3>
+        <p><%= note.description %></p>
+    		<form action=<%= url + '?_method=PUT'%> method="POST">
+        <input type='text' name='name' value="<%= note.title %>" />
+     <input type='text' name='description' value="<%= note.description %>" />
+                <button class="btn btn-waves" type="button">Edit Note</button>
+        </form>
+        <form action=<%= url + '?_method=DELETE'%> method="POST">
+    			<button class="btn btn-waves" type="submit">Delete Note</button>
+    		</form>
+    	</div>
+    	
+    	</div>
+    </div>
+
+  </body>
+</html>

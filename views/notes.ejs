@@ -31,10 +31,20 @@
     	<div class="col s12 m6 offset-m3">
     		<h2>Add a New Note</h2>
     		<form action="/notes" method="POST">
-    			<input type="text" name="title" placeholder="Note Title">
-    			<input type="text" name="description" placeholder="Note Description">
-    			<button class="btn btn-waves grey darken-2" type="submit">Add a Note</button>
+
+    			<input type="text" name="title" placeholder="Note Title" />
+    			<input type="text" name="description" placeholder="Note Description" />
+    			<button class="btn btn-waves" type="submit">Add a Note</button>
     		</form>
+    	</div>
+    	<div class="col m8 s12">
+    		<div class="row">
+    			<% notes.forEach( function(note) { %>
+					<div class="s12 m4">
+						<a href=<%= '/notes/' + note.id %> ><%= note.title %></a>
+					</div>
+    			<% }) %>
+    		</div>
     	</div>
     </div>
 
