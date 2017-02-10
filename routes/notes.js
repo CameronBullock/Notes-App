@@ -26,9 +26,9 @@ router.get('/:id', function(req, res) {
 router.put('/:id', function(req, res) {
   var body = {
     title: req.body.title,
-    description: req.body.description,
+    description: req.body.description
   };
-
+  
   Note.findByIdAndUpdate(req.params.id, { $set: body }, {new: true}, function(err, note) {
   res.redirect('/notes/' + req.params.id);
   });

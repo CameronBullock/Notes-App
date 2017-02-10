@@ -5,16 +5,20 @@
   </head>
   <body>
   	<% include ./partials/navbar %>
-    <% var url ='/notes/' + note.id %>
+    <% var url = '/notes/' + note.id %>
     <div class="row">
     	<div class="col s12 m4">
     		<h3><%= note.title %></h3>
         <p><%= note.description %></p>
-    		<form action=<%= url + '?_method=PUT'%> method="POST">
-        <input type='text' name='name' value="<%= note.title %>" />
-     <input type='text' name='description' value="<%= note.description %>" />
-                <button class="btn btn-waves" type="button">Edit Note</button>
+
+    		<form id='edit' action=<%= url + '?_method=PUT' %> method="POST">
+          <input id="title" name="title" value="<%= note.title %>" />
+          <input id="description" name="description" value="<%= note.description %>" />
+          <button class="btn">Save</button>
         </form>
+        
+        <hr>
+
         <form action=<%= url + '?_method=DELETE'%> method="POST">
     			<button class="btn btn-waves" type="submit">Delete Note</button>
     		</form>
