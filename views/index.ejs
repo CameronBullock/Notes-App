@@ -2,10 +2,52 @@
 <html>
   <head>
     <% include ./partials/head %>
+
+    <style>
+    h1 {
+      font-size: 11em;
+      font-weight: 900;
+  }
+  .hero_text p {
+     font-size: 2.5em;
+     letter-spacing: 10px;
+     margin-top: 0;
+ }
+ .hero_top_parallax::after {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100%;
+     width: 100%;
+     background: rgba(6, 6, 6, 0.7);
+ }
+ .hero_text {
+   margin-top: 18em;
+ }
+ button.btn {
+     padding: .5em 2em;
+     text-transform: inherit;
+     font-size: 1.5em;
+     letter-spacing: 2px;
+     height: inherit;
+ }
+    </style>
+
   </head>
   <body>
   	<% include ./partials/navbar %>
-    <h1>Notes</h1>
-    <p>Welcome to Notes</p>
+
+    <div id="index-banner" style="height: 100vh;" class="parallax-container">
+        <div class="section no-pad-bot">
+          <div class="hero_text white-text center container">
+            <h1><%= title %></h1>
+            <p>Welcome to <%= title %></p>
+            <a href="/notes"><button class="white black-text btn">See Notes</button></a>
+          </div>
+        </div>
+        <div class="hero_top_parallax parallax" ><img style= "display: inline !important;" src= "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?dpr=2&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=" alt=""></div>
+      </div>
+
   </body>
 </html>

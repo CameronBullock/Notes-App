@@ -2,31 +2,60 @@
 <html>
   <head>
     <% include ./partials/head %>
+
+    <style>
+    .row.add_note {
+    margin-top: 3em;
+}
+
+    .add_note h2 {
+      font-size: 2em;
+    }
+
+    .all_notes h4 {
+      font-size: 1em;
+    }
+    .all_notes h2 {
+      font-size: 2em;
+    }
+    .all_notes .row {
+      margin-top: 6em;
+    }
+
+    </style>
   </head>
   <body>
   	<% include ./partials/navbar %>
-    <h1>Notes</h1>
-    <p>Welcome to my Notes</p>
-    <div class="row">
-    	<div class="col s12 m4">
-    		<h3>Add Notes</h3>
+
+    <div class="row add_note">
+    	<div class="col s12 m6 offset-m3">
+    		<h2>Add a New Note</h2>
     		<form action="/notes" method="POST">
     			<input type="text" name="title" placeholder="Note Title">
     			<input type="text" name="description" placeholder="Note Description">
-    			<button class="btn btn-waves" type="submit">Add a Note</button>
+    			<button class="btn btn-waves grey darken-2" type="submit">Add a Note</button>
     		</form>
-    	</div>
-    	<div class="col m8 s12">
-    		<div class="row">
-    			<% notes.forEach( function(note) { %>
-					<% action = '/notes/' + note.id %>
-					<div class="s12 m4">
-						<a href=<% action %> ><%= note.title %></a>
-					</div>
-    			<% }) %>
-    		</div>
     	</div>
     </div>
 
+    			<div class="container all_notes">
+            <h2 class="center">My Notes</h2>
+            <div class="row">
+            <% notes.forEach( function(note) { %>
+            <div class="center col m4 s12">
+              <a href= <%= '/notes/' + note.id %> >
+					<div class="card-panel hoverable white-text cyan">
+            <% action = '/notes/' + note.id %>
+						 <h4><%= note.title %></h2>
+          </div>
+          </a>
+          </div>
+    			<% }) %>
+        </div>
+      </div>
+
+
+
+<% include ./partials/footer %>
   </body>
 </html>
