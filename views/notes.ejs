@@ -11,17 +11,16 @@
     	<div class="col s12 m4">
     		<h3>Add Notes</h3>
     		<form action="/notes" method="POST">
-    			<input type="text" name="title" placeholder="Note Title">
-    			<input type="text" name="description" placeholder="Note Description">
+    			<input type="text" name="title" placeholder="Note Title" />
+    			<input type="text" name="description" placeholder="Note Description" />
     			<button class="btn btn-waves" type="submit">Add a Note</button>
     		</form>
     	</div>
     	<div class="col m8 s12">
     		<div class="row">
     			<% notes.forEach( function(note) { %>
-					<% action = '/notes/' + note.id %>
 					<div class="s12 m4">
-						<a href=<% action %> ><%= note.title %></a>
+						<a href=<%= '/notes/' + note.id %> ><%= note.title %></a>
 					</div>
     			<% }) %>
     		</div>
