@@ -7,14 +7,15 @@
   	<% include ./partials/navbar %>
     <h1>Note</h1>
     <p>This a single note</p>
-    <% var url ='/notes' + note.id %>
+    <% var url ='/notes/' + note.id %>
     <div class="row">
     	<div class="col s12 m4">
     		<h3><%= note.title %></h3>
-    		<form action=<% url + '?_method=PUT'%>
+        <p><%= note.description %></p>
+    		<form action=<%= url + '?_method=PUT'%> method="POST">
                 <button class="btn btn-waves" type="button">Edit Note</button>
-            </form>
-            <form action=<% url + '?_method=DELETE'%>
+        </form>
+        <form action=<%= url + '?_method=DELETE'%> method="POST">
     			<button class="btn btn-waves" type="submit">Delete Note</button>
     		</form>
     	</div>
