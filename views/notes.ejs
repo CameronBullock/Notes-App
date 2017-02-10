@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./partials/head %>
+  </head>
+  <body>
+  	<% include ./partials/navbar %>
+    <h1>Notes</h1>
+    <p>Welcome to my Notes</p>
+    <div class="row">
+    	<div class="col s12 m4">
+    		<h3>Add Notes</h3>
+    		<form action="/notes" method="POST">
+    			<input type="text" name="title" placeholder="Song Title">
+    			<input type="text" name="description" placeholder="Song Description">
+    			<button class="btn btn-waves" type="submit">Add a Song</button>
+    		</form>
+    	</div>
+    	<div class="col m8 s12">
+    		<div class="row">
+    			<% notes.forEach( function(note) { %>
+					<% action = '/notes/' + note.id %>
+					<div class="s12 m4">
+						<a href=<% action %> ><%= note.title %></a>
+					</div>
+    			<% }) %>
+    		</div>
+    		
+    	</div>
+    </div>
+  </body>
+</html>
